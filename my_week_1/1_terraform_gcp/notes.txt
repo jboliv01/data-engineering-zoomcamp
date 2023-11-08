@@ -1,0 +1,4 @@
+win using the google cloud sdk cli in windows, you must use "set" instead of "export"
+to set the environmental variable to your service account credentials.
+
+set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Jonah\Desktop\JonahsPortfolio\data-engineering-zoomcamp\my_week_1\1_terraform_gcp\data-en-404300-3ec3cd1f5ffd.json"
