@@ -65,3 +65,10 @@ taxi_zone_ingest:v001 \
 --db=ny_taxi \
 --table=taxi_zone_data \
 --url=${URL}
+
+# Running the cmd "docker-compose up" will create the create images containing the services in your docker-compose file, 
+# which will create an image running two services both pgadmin and a postgres environment. 
+# With the ny_taxi_data volume referenced, the database should be persitent, containing the 
+# ny_taxi database as well as the ny_taxi_data table previously ingested. 
+# Run the cmd "docker-compose up". Use the cmd "docker ps" to see which containers
+# are currently active and use "docker-compose down" to shutdown the containers and stop the services defined in docker-compose.yml.
