@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 from time import time, sleep
 
 
+
 def main(params):
     user = params.user
     password = params.password
@@ -17,25 +18,30 @@ def main(params):
     db = params.db
     table = params.table
     url = params.url
-    csv_name = 'yellow_tripdata_2023-01.parquet'
+    file_name = url.split('/')[-1]
     
-    os.system(f'wget {url} -O {csv_name}')
+    os.system(f'wget {url} -O {file_name}')
 
     # postgresql://root:root@localhost:5432/ny_taxi
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
 
-    # yellow_tripdata_2023-01.parquet
-    pf = pq.read_table(csv_name)
-    trips = pf.to_pandas()
-    #print(trips.head(10))
-    df_len = trips.shape[0]
+    if file_name.endswith('.parquet'):
+        pf = pq.read_table(file_name)
+        data = pf.to_pandas()
+    elif file_name.endswith('.csv') or file_name.endswith('.csv.gz'):
+        data = pd.read_csv(file_name, compression='infer')
+    else:
+        print(f'Unsupported file format: {file_name}')
+        return
+
+    df_len = data.shape[0]
 
     # Data Definition Language (DDL): defines the schema
-    print(pd.io.sql.get_schema(trips, name='yellow_taxi_data', con=engine))
+    print(pd.io.sql.get_schema(data, name='yellow_taxi_data', con=engine))
 
     chunk_size = 100000
     chunk_count = 0
-    chunks = [trips.iloc[i:i+chunk_size] for i in range(0, len(trips), chunk_size)]
+    chunks = [data.iloc[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
 
 
     for df in chunks:

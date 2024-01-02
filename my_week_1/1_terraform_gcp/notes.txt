@@ -1,4 +1,17 @@
-win using the google cloud sdk cli in windows, you must use "set" instead of "export"
+When using the google cloud sdk cli in windows, you must use "set" instead of "export"
 to set the environmental variable to your service account credentials.
 
-set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Jonah\Desktop\JonahsPortfolio\data-engineering-zoomcamp\my_week_1\1_terraform_gcp\data-en-404300-3ec3cd1f5ffd.json"
+Download the api key for the google cloud project under IAM & Admin > Service Account > Keys
+set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Jonah\Desktop\JonahsPortfolio\data-engineering-zoomcamp\my_week_1\1_terraform_gcp\data-en-404300-674f8585a73a.json"
+
+run the following commands in a windows powershell:
+
+change directory to my_week_1/1_terraform_gcp/terraform
+
+terraform init
+
+terraform plan -var="project=data-en-404300" 
+
+terraform apply -var="project=data-en-404300" 
+
+terraform destroy 

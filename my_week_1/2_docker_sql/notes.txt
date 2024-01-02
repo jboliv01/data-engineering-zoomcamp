@@ -72,3 +72,43 @@ taxi_zone_ingest:v001 \
 # ny_taxi database as well as the ny_taxi_data table previously ingested. 
 # Run the cmd "docker-compose up". Use the cmd "docker ps" to see which containers
 # are currently active and use "docker-compose down" to shutdown the containers and stop the services defined in docker-compose.yml.
+
+
+
+
+
+# Steps for Cohort 2024 
+
+# Taxi Data
+
+# Before ingesting data, run "docker compose up" in order to start postgres and pgadmin services
+
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz"
+
+docker build -t taxi_ingest:v002 .
+
+winpty docker run -it \
+--network my_week_1_default \
+taxi_ingest:v002 \
+--user=root \
+--password=root \
+--host=pgdatabase \
+--port=5432 \
+--db=ny_taxi \
+--table=yellow_txi_data \
+--url=${URL}
+
+# Taxi Zone Data
+
+URL="https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv"
+
+winpty docker run -it \
+--network my_week_1_default \
+taxi_zone_ingest:v001 \
+--user=root \
+--password=root \
+--host=pgdatabase \
+--port=5432 \
+--db=ny_taxi \
+--table=taxi_zone_data \
+--url=${URL}
