@@ -1,6 +1,6 @@
 variable "credentials" {
   description = "My Credentials"
-  default     = "data-en-404300-bcc0d08203a3.json"
+  default     = "data-en-404300-388f8ad6b0a4.json"
   #ex: if you have a directory where this file is called keys with your service account json file
   #saved there as my-creds.json you could use default = "./keys/my-creds.json"
 }
@@ -8,7 +8,7 @@ variable "credentials" {
 
 variable "project" {
   description = "Project"
-  default     = "<Your Project ID>"
+  default     = "data-en-404300"
 }
 
 variable "region" {
