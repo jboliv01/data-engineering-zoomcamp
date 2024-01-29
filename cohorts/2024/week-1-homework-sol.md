@@ -1,5 +1,5 @@
 # Week 2 Homework Solution
-##Author: Jonah Oliver
+## Author: Jonah Oliver
 
 1. --rm
 2. 0.42.0
