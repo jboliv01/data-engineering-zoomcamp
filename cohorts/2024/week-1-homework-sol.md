@@ -6,7 +6,7 @@
 3. 15612
 4. 2019-09-26
 
-###QUERY USED: 
+### QUERY USED: 
 
 ```sql
 SELECT DATE(lpep_pickup_datetime) as pickupdate, MAX(trip_distance) as top_dist
@@ -17,7 +17,7 @@ ORDER BY top_dist DESC
 
 5. "Bronx" "Manhattan" "Queens"
 
-###QUERY USED: 
+### QUERY USED: 
 ```sql
 SELECT "Borough", SUM(total_amount) 
 FROM public.yellow_txi_data
@@ -32,7 +32,7 @@ HAVING SUM(total_amount) > 50000
 
 6. JFK Airport
 
-###QUERY USED: 
+### QUERY USED: 
 
 ```sql
 SELECT pickup."Zone", dropoff."Zone", MAX(tip_amount) 
