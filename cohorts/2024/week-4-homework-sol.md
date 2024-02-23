@@ -1,4 +1,4 @@
-# Week 2 Homework Solution
+# Week 4 Homework Solution
 ## Author: Jonah Oliver
    
 1. It applies a limit 100 to all of our models, considering our `fact_trips` model references both staging tables, it too will have a limit imposed.
