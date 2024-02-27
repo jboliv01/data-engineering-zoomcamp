@@ -19,7 +19,17 @@ models:
                 severity: error
   
   - name: fact_fhv_trips
+    description: >
+      Taxi trips corresponding to FHV service zones.
+      The table contains records where both pickup and dropoff locations are valid and known zones. 
+      Each record corresponds to a trip uniquely identified by tripid. 
       
+  - name: fact_all_trips
+    description: >
+      Taxi trips corresponding to all service zones (Green, yellow and FHV)
+      The table contains records where both pickup and dropoff locations are valid and known zones. 
+      Each record corresponds to a trip uniquely identified by tripid. 
+
   - name: fact_trips
     description: >
       Taxi trips corresponding to both service zones (Green and yellow).
