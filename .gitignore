@@ -16,3 +16,8 @@ serving_dir
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
 data-en-*
+**.csv*
+**.parquet
+.part**
+my_week_5/code/data/
+my_week_5/code/zones/

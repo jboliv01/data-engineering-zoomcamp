@@ -1,0 +1,10 @@
+version: '3'
+services:
+  spark-jupyter:
+    build: .
+    image: spark_jupyter_lab:latest  # Name and tag the image
+    ports:
+      - "8888:8888"  # Jupyter Lab
+      - "4040:4040"  # Spark UI
+    volumes:
+      - ./code:/opt/spark/work-dir  # Mount the 'code' directory to the container's work directory
