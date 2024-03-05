@@ -38,6 +38,9 @@ RUN wget https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoo
     tar xzfv /tmp/spark-3.5.1-bin-hadoop3.tgz --strip-components=1 -C "$SPARK_HOME" && \
     rm /tmp/spark-3.5.1-bin-hadoop3.tgz
 
+# Download and add the GCS connector jar to the Spark jars directory
+RUN wget https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop2.jar -O $SPARK_HOME/jars/gcs-connector-latest-hadoop2.jar
+
 # Set working directory
 WORKDIR /opt/spark/work-dir
 
