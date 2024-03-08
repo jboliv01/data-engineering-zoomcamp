@@ -7,7 +7,6 @@ import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
-
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--input_green', required=True)
@@ -16,14 +15,16 @@ parser.add_argument('--output', required=True)
 
 args = parser.parse_args()
 
+
 input_green = args.input_green
 input_yellow = args.input_yellow
 output = args.output
 
-
 spark = SparkSession.builder \
     .appName('test') \
     .getOrCreate()
+
+spark._jsc.hadoopConfiguration().set("google.cloud.auth.service.account.json.keyfile","/opt/spark/work-dir/dtc-de-zoomcamp-410523-cc75fbfdb8b8.json")
 
 df_green = spark.read.parquet(input_green)
 

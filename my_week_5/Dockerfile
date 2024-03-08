@@ -45,7 +45,7 @@ RUN wget https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hado
 WORKDIR /opt/spark/work-dir
 
 # Expose ports for Jupyter Lab and Spark UI
-EXPOSE 8888 4040
+EXPOSE 8888 4040 8080
 
 # Start Jupyter Lab by default
 CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]

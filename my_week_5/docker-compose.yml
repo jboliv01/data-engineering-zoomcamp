@@ -5,6 +5,9 @@ services:
     image: spark_jupyter_lab:latest  # Name and tag the image
     ports:
       - "8888:8888"  # Jupyter Lab
+      - "8080:8080" # Spark Master UI
+      - "8081:8081" # Spark Worker UI
+      - "7077:7077"
       - "4040:4040"  # Spark UI
       - "4041:4041"  # Spark UI for the second application
       - "4042:4042"  # Spark UI for the third application
