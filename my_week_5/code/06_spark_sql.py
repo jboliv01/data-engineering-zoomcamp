@@ -24,7 +24,7 @@ spark = SparkSession.builder \
     .appName('test') \
     .getOrCreate()
 
-spark._jsc.hadoopConfiguration().set("google.cloud.auth.service.account.json.keyfile","/opt/spark/work-dir/dtc-de-zoomcamp-410523-cc75fbfdb8b8.json")
+#spark._jsc.hadoopConfiguration().set("google.cloud.auth.service.account.json.keyfile","/opt/spark/work-dir/dtc-de-zoomcamp-410523-cc75fbfdb8b8.json")
 
 df_green = spark.read.parquet(input_green)
 
