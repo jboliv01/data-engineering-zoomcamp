@@ -16,15 +16,16 @@ JOIN taxi_zone as dropoff_location
     ON trip_data.dolocationid = dropoff_location.location_id
 GROUP BY trip
 
-DROP MATERIALIZED VIEW zone_trip_stats;
-
 SELECT
     avg_trip,
     trip_cnt,
     trip
 FROM zone_trip_stats
-WHERE trip in ('Yorkville East, Steinway')
---WHERE trip in ('Yorkville East, Steinway', 'Murray Hill, Midwood', 'East Flatbush/Farragut, East Harlem North', 'Midtown Center, University Heights/Morris Heights')
+WHERE trip in (
+    'Yorkville East, Steinway',
+    'Murray Hill, Midwood',
+    'East Flatbush/Farragut, East Harlem North',
+    'Midtown Center, University Heights/Morris Heights')
 ORDER by avg_trip DESC
 ```
 
@@ -60,6 +61,5 @@ CREATE MATERIALIZED VIEW busiest_zones AS
     GROUP BY pickup_zone
     order by trips DESC
  
-
 SELECT * FROM busiest_zones order by trips DESC;
 ```
