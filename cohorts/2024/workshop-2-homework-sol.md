@@ -1,4 +1,5 @@
-# Question 1 
+# Question 1: Highest average trip time
+## Answer: Yorkville East, Steinway
 
 ```sql
 CREATE MATERIALIZED VIEW zone_trip_stats AS 
@@ -25,9 +26,11 @@ FROM zone_trip_stats
 WHERE trip in ('Yorkville East, Steinway')
 --WHERE trip in ('Yorkville East, Steinway', 'Murray Hill, Midwood', 'East Flatbush/Farragut, East Harlem North', 'Midtown Center, University Heights/Morris Heights')
 ORDER by avg_trip DESC
-
 ```
-# Question 2 
+
+# Question 2:  Number of trips
+## Answer: 1
+
 ```sql
 SELECT
     avg_trip,
@@ -41,6 +44,7 @@ ORDER by trip_cnt DESC
 ```
 
 # Question 3: Top 3 busiest zones
+## Answer: LaGuardia Airport, Lincoln Square East, JFK Airport
 ```sql
 CREATE MATERIALIZED VIEW busiest_zones AS
     WITH max_trip AS (
