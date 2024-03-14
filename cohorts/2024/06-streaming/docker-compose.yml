@@ -32,3 +32,9 @@ services:
       - 9092:9092
       - 28082:28082
       - 29092:29092
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
